@@ -15,7 +15,6 @@ import combatmanager.models.CombatantList;
  */
 public class MainForm extends javax.swing.JFrame
 {
-
     public CombatantList PlayerCharacters;
     
     /**
@@ -77,6 +76,13 @@ public class MainForm extends javax.swing.JFrame
         removePCBtn.setText("Remove PC");
 
         beginCombatBtn.setText("Begin Combat");
+        beginCombatBtn.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                beginCombatBtnActionPerformed(evt);
+            }
+        });
 
         exitBtn.setText("Exit Program");
 
@@ -126,7 +132,15 @@ public class MainForm extends javax.swing.JFrame
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void beginCombatBtnActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_beginCombatBtnActionPerformed
+    {//GEN-HEADEREND:event_beginCombatBtnActionPerformed
+        // TODO add your handling code here:
+        BattleForm battle = new BattleForm(this.PlayerCharacters.getCombatants());
+        battle.setVisible(true);        
+    }//GEN-LAST:event_beginCombatBtnActionPerformed
 
    
     // Variables declaration - do not modify//GEN-BEGIN:variables
